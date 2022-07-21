@@ -1,0 +1,59 @@
+# Standard import statements
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SWRL imports
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> . 
+
+# Domain imports
+@prefix friendtracker: <http://semwebprogramming.org/2009/ftracker#> .
+@prefix facebook: <http://www.facebook.com/ontology#> .
+
+@prefix : <http://semwebprogramming.org:8099/ont/friendtracker-facebook-mapping#> .
+
+facebook:Friend owl:equivalentClass friendtracker:Friend .
+facebook:name owl:equivalentProperty friendtracker:isNamed .
+facebook:picture owl:equivalentProperty friendtracker:hasPic .
+
+:state a swrl:Variable .
+:city a swrl:Variable .
+:person a swrl:Variable .
+:loc a swrl:Variable . 
+:origin a swrl:Variable .
+
+:OriginRule a swrl:Imp ;
+	swrl:body
+	(
+		[ a swrl:IndividualPropertyAtom ;
+		  swrl:propertyPredicate facebook:location ;
+		  swrl:argument1 :person ;
+		  swrl:argument2 :loc
+		]
+		[ a swrl:DatavaluedPropertyAtom ;
+	 	  swrl:propertyPredicate facebook:city ;
+		  swrl:argument1 :loc ;
+		  swrl:argument2 :city 
+		]
+		[ a swrl:DatavaluedPropertyAtom ;
+		  swrl:propertyPredicate facebook:state ;
+		  swrl:argument1 :loc ;
+		  swrl:argument2 :state
+		] 
+		[ a swrl:BuiltinAtom ;
+		  swrl:builtin swrlb:stringConcat ;
+		  swrl:arguments (:origin :city  ", " :state )
+		]
+	) ;
+	swrl:head
+	(
+		[ a swrl:DatavaluedPropertyAtom ;
+		  swrl:propertyPredicate friendtracker:isFrom ;
+		  swrl:argument1 :person ;
+		  swrl:argument2 :origin
+		]
+	) .
+
+

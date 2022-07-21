@@ -1,0 +1,55 @@
+#query main-construct
+
+PREFIX wp: <http://www.semwebprogramming.net/wordpress/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT
+{
+   ?user   rdf:type wp:wp_users;
+           wp:wp_users_ID ?uid;
+           ?usersProp ?usersVal.
+   ?post   rdf:type wp:wp_posts;
+           wp:wp_posts_post_author ?uid;
+           ?postProp ?postVal.
+}
+WHERE 
+{ 
+   ?user   rdf:type wp:wp_users;
+           wp:wp_users_ID ?uid;
+           ?usersProp ?usersVal.
+   ?post   rdf:type wp:wp_posts;
+           wp:wp_posts_post_author ?uid;
+           wp:wp_posts_post_type "post";
+           wp:wp_posts_post_status "publish";
+           ?postProp ?postVal.
+}
+
+#end
+
+#query main-select
+
+PREFIX wp: <http://wordpress.org/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?date ?title ?login ?email
+WHERE 
+{         
+   ?user   rdf:type wp:wp_stock_users;
+           wp:wp_stock_users_ID ?uid;
+           wp:wp_stock_users_user_login ?login;
+           wp:wp_stock_users_user_email ?email.
+   ?post   rdf:type wp:wp_stock_posts;
+           wp:wp_stock_posts_post_author ?uid;
+           wp:wp_stock_posts_post_title ?title;
+           wp:wp_stock_posts_post_date  ?date;
+           wp:wp_stock_posts_post_type "post";
+           wp:wp_stock_posts_post_status "publish".
+           
+   FILTER regex(?login, "%1$s", "i")
+}
+
+#end

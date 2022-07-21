@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY swp "http://www.semwebprogramming.net#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ont "http://semwebprogramming.net/2009/ftracker#" >
+]>
+
+<rdf:RDF xmlns="http://ww.semwebprogramming.net#"
+     xml:base="http://www.semwebprogramming.net"
+     xmlns:ont="http://semwebprogramming.net/2009/ftracker#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:swp="http://www.semwebprogramming.net#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasPost">
+        <rdfs:range rdf:resource="http://semwebprogramming.net/2009/ftracker#Post"/>
+    </owl:ObjectProperty>
+     <owl:ObjectProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasStatus">
+        <rdfs:range rdf:resource="http://semwebprogramming.net/2009/ftracker#OnlineStatus"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasVenue">
+        <rdfs:range rdf:resource="http://semwebprogramming.net/2009/ftracker#Venue"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://semwebprogramming.net/2009/ftracker#occursAt">
+        <rdfs:range rdf:resource="&time;Instant"/>
+    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasContent">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+     <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasDescription">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasEmailAddress">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasHandle">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasPic">
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#hasTitle">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#isFrom">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://semwebprogramming.net/2009/ftracker#isNamed">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+     <owl:DatatypeProperty rdf:about="&time;inXSDDateTime"/>
+    <owl:Class rdf:about="http://semwebprogramming.net/2009/ftracker#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#isNamed"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#occursAt"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#hasVenue"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://semwebprogramming.net/2009/ftracker#Friend">
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://semwebprogramming.net/2009/ftracker#OnlineStatus"/>
+    <owl:Class rdf:about="http://semwebprogramming.net/2009/ftracker#Post">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#hasContent"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#occursAt"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#hasTitle"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://semwebprogramming.net/2009/ftracker#Venue">
+        <rdfs:subClassOf rdf:resource="&wgs84_pos;Point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semwebprogramming.net/2009/ftracker#isNamed"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="&owl;Thing"/>
+    <owl:Class rdf:about="&wgs84_pos;Point"/>
+    <owl:Class rdf:about="&time;Instant"/>
+    <owl:Class rdf:about="&foaf;Person"/>
+    <ont:Friend rdf:about="#Andrew">
+        <ont:isFrom>Virginia</ont:isFrom>
+        <ont:hasEmailAddress>andrew@semwebprogramming.com</ont:hasEmailAddress>
+        <ont:isFrom>United States</ont:isFrom>
+        <ont:isNamed>Andrew</ont:isNamed>
+        <ont:hasPost rdf:resource="#Post00123"/>
+    </ont:Friend>
+    <rdf:Description rdf:about="#Available"/>
+	<ont:Friend rdf:about="#John">
+        <ont:hasPic>http://www.semwebprogramming.com/Pictures/john.jpg</ont:hasPic>
+        <ont:isFrom>Maryland</ont:isFrom>
+        <ont:isNamed>Johnny</ont:isNamed>
+        <ont:hasEmailAddress>john@semwebprogramming.com</ont:hasEmailAddress>
+        <ont:hasTitle>Head Honcho</ont:hasTitle>
+    </ont:Friend>
+	<ont:Post rdf:about="#Post00123">
+        <ont:hasContent>When in the Course of human events it becomes necessary ...</ont:hasContent>
+        <ont:hasTitle>All About Post00123</ont:hasTitle>
+        <ont:occursAt rdf:resource="#TimeSample1"/>
+    </ont:Post>
+	<ont:Post rdf:about="#Post00124">
+        <ont:hasTitle>One day at a time</ont:hasTitle>
+        <ont:hasContent>I have a dream that one day this nation will rise up and live out the true meaning of its creed: We hold these truths to be self-evident, that all men are created equal</ont:hasContent>
+    </ont:Post>
+    <time:Instant rdf:about="#TimeSample1">
+        <time:inXSDDateTime rdf:datatype="&xsd;dateTime">2008-10-28T11:31:52</time:inXSDDateTime>
+    </time:Instant>
+    <time:Instant rdf:about="#TimeSample2">
+        <time:inXSDDateTime rdf:datatype="&xsd;dateTime">2008-11-02T09:30:50+03:00,</time:inXSDDateTime>
+    </time:Instant>
+    <ont:Friend rdf:about="http://semwebprogramming.net/2009/ftracker#Matt">
+        <ont:hasPic rdf:datatype="&xsd;anyURI">http://www.progeny.net/People/MattFisher/files/images/headshotSmall.png</ont:hasPic>
+        <ont:hasTitle>Principal Systems Engineer</ont:hasTitle>
+        <ont:isNamed>Matt</ont:isNamed>
+        <ont:hasEmailAddress>mfisher@semwebprogramming.com</ont:hasEmailAddress>
+        <ont:hasEmailAddress>matt2@semwebprogramming.net</ont:hasEmailAddress>
+        <ont:hasStatus rdf:resource="#Available"/>
+    </ont:Friend>
+</rdf:RDF>
+

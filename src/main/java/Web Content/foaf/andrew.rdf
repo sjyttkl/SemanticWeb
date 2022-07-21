@@ -1,0 +1,17 @@
+@prefix : <http://www.semwebprogramming.net/authors/andrew/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:Me a foaf:Person ;
+        foaf:surname "Perez-Lopez" ;
+	foaf:firstName "Andrew" ;
+	foaf:gender "Male" ;
+        foaf:schoolHomepage <http://www.virginia.edu> ;
+	foaf:schoolHomepage <http://www.vt.edu> ;
+	foaf:currentProject <http://www.semwebprogramming.net/book> .
+
+<http://www.semwebprogramming.net/book> a foaf:Document .
+
+ 
+
+
+

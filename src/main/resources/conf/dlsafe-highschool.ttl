@@ -1,0 +1,68 @@
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix highSchool:  <http://www.semwebprogramming.net/2009/Chapter7/dlsafe-highschool.owl#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://www.semwebprogramming.net/2009/Chapter7/dlsafe-highschool.owl>
+      rdf:type owl:Ontology ;
+      rdfs:comment "Sample instance data as part of the DL-safe rules example from Chapter 7 of Semantic Web Programming, Wiley, 2009" .
+
+highSchool:PopularFriend
+      rdf:type owl:Class ;
+      rdfs:subClassOf highSchool:Friend ;
+      rdfs:subClassOf
+              [ rdf:type owl:Restriction ;
+                owl:someValuesFrom highSchool:Friend ;
+                owl:onProperty highSchool:isBestFriendOf
+              ] .
+
+highSchool:Friend
+      rdf:type owl:Class ;
+      rdfs:subClassOf foaf:Person .
+
+highSchool:QuarterbackAndrew
+      rdf:type highSchool:PopularFriend ;
+      highSchool:isBestFriendOf
+              highSchool:John .
+
+highSchool:isBestFriendOf
+      rdf:type owl:ObjectProperty .
+
+highSchool:John
+      rdf:type highSchool:Friend .
+
+highSchool:PotentialClassKing
+      rdf:type owl:Class .
+
+foaf:Person
+      rdf:type rdfs:Class .
+
+highSchool:f1
+      rdf:type swrl:Variable .
+
+highSchool:f2
+      rdf:type swrl:Variable .
+
+highSchool:IsAPotentialClassKing
+      rdf:type swrl:Imp ;
+      swrl:body ([ rdf:type swrl:ClassAtom ;
+                  swrl:argument1 highSchool:f1 ;
+                  swrl:classPredicate foaf:Person
+                ] [ rdf:type swrl:ClassAtom ;
+                  swrl:argument1 highSchool:f2 ;
+                  swrl:classPredicate foaf:Person
+                ] [ rdf:type swrl:IndividualPropertyAtom ;
+                  swrl:argument1 highSchool:f1 ;
+                  swrl:argument2 highSchool:f2 ;
+                  swrl:propertyPredicate
+                          highSchool:isBestFriendOf
+                ]) ;
+      swrl:head ([ rdf:type swrl:ClassAtom ;
+                  swrl:argument1 highSchool:f1 ;
+                  swrl:classPredicate highSchool:PotentialClassKing
+                ]) .

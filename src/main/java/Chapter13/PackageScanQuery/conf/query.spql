@@ -1,0 +1,20 @@
+PREFIX time: <http://www.w3.org/2006/time#> 
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#> 
+PREFIX pack: <http://example.org/package#> 
+
+SELECT ?lat ?lon ?name ?time
+WHERE { 
+  ?scan a pack:Scan ;
+        pack:package [ pack:id "1111" ] ;
+        pack:location [ a pack:Warehouse ;
+                        pack:name ?name ;
+                        pack:locatedAt [ a geo:Point ;
+                                         geo:lat ?lat ;
+                                         geo:long ?lon 
+                                       ]
+                      ] ;
+        pack:time [ a time:Instant ;
+                    time:inXSDDateTime ?time 
+                  ]
+}

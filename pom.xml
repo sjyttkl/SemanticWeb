@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>SemanticWeb</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.hp.hpl.jena</groupId>
+            <artifactId>jena</artifactId>
+            <version>2.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>apache-jena</artifactId>
+            <version>3.15.0</version>
+<!--            <version>4.0.0</version>-->
+<!--            超过4.00需要java11-->
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-fuseki</artifactId>
+            <version>4.5.0</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>make-jar</id><!--名字任意 -->
+                        <phase>package</phase>   <!-- 绑定到package生命周期阶段上 -->
+                        <goals>
+                            <goal>single</goal>   <!-- 只运行一次 -->
+                        </goals>
+                        <configuration>
+                            <descriptors>   <!--描述文件路径-->
+                                <descriptor>src/main/package/jar.xml</descriptor>
+                            </descriptors>
+                            <!--这样配置后，mvn deploy不会把assembly打的zip包上传到nexus-->
+                            <attach>false</attach>
+                        </configuration>
+                    </execution>
+                    <!--<execution>-->
+                    <!--<id>make-zip</id>&lt;!&ndash;名字任意 &ndash;&gt;-->
+                    <!--<phase>package</phase>   &lt;!&ndash; 绑定到package生命周期阶段上 &ndash;&gt;-->
+                    <!--<goals>-->
+                    <!--<goal>single</goal>   &lt;!&ndash; 只运行一次 &ndash;&gt;-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<descriptors>   &lt;!&ndash;描述文件路径&ndash;&gt;-->
+                    <!--<descriptor>src/main/package/tar.xml</descriptor>-->
+                    <!--</descriptors>-->
+                    <!--&lt;!&ndash;这样配置后，mvn deploy不会把assembly打的zip包上传到nexus&ndash;&gt;-->
+                    <!--<attach>false</attach>-->
+                    <!--</configuration>-->
+                    <!--</execution>-->
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+</project>

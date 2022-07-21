@@ -1,0 +1,628 @@
+@prefix map: <file:conf/mapping.n3#> .
+@prefix db: <> .
+@prefix vocab: <http://www.semwebprogramming.net/wordpress/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql://localhost:3306/wordpress?zeroDateTimeBehavior=convertToNull";
+	d2rq:username "wordpress";
+	d2rq:password "wordpress";
+	.
+
+# Table wp_comments
+map:wp_comments a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_comments/@@wp_comments.comment_ID@@";
+	d2rq:class vocab:wp_comments;
+	.
+map:wp_comments__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_comments #@@wp_comments.comment_ID@@";
+	.
+map:wp_comments_comment_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_ID;
+	d2rq:column "wp_comments.comment_ID";
+	d2rq:datatype xsd:long;
+	.
+map:wp_comments_comment_post_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_post_ID;
+	d2rq:column "wp_comments.comment_post_ID";
+	d2rq:datatype xsd:int;
+	.
+map:wp_comments_comment_author a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_author;
+	d2rq:column "wp_comments.comment_author";
+	.
+map:wp_comments_comment_author_email a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_author_email;
+	d2rq:column "wp_comments.comment_author_email";
+	.
+map:wp_comments_comment_author_url a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_author_url;
+	d2rq:column "wp_comments.comment_author_url";
+	.
+map:wp_comments_comment_author_IP a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_author_IP;
+	d2rq:column "wp_comments.comment_author_IP";
+	.
+map:wp_comments_comment_date a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_date;
+	d2rq:column "wp_comments.comment_date";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_comments.comment_date != '0000'";
+	.
+map:wp_comments_comment_date_gmt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_date_gmt;
+	d2rq:column "wp_comments.comment_date_gmt";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_comments.comment_date_gmt != '0000'";
+	.
+map:wp_comments_comment_content a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_content;
+	d2rq:column "wp_comments.comment_content";
+	.
+map:wp_comments_comment_karma a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_karma;
+	d2rq:column "wp_comments.comment_karma";
+	d2rq:datatype xsd:int;
+	.
+map:wp_comments_comment_approved a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_approved;
+	d2rq:column "wp_comments.comment_approved";
+	.
+map:wp_comments_comment_agent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_agent;
+	d2rq:column "wp_comments.comment_agent";
+	.
+map:wp_comments_comment_type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_type;
+	d2rq:column "wp_comments.comment_type";
+	.
+map:wp_comments_comment_parent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_comment_parent;
+	d2rq:column "wp_comments.comment_parent";
+	d2rq:datatype xsd:long;
+	.
+map:wp_comments_user_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_comments;
+	d2rq:property vocab:wp_comments_user_id;
+	d2rq:column "wp_comments.user_id";
+	d2rq:datatype xsd:long;
+	.
+
+# Table wp_links
+map:wp_links a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_links/@@wp_links.link_id@@";
+	d2rq:class vocab:wp_links;
+	.
+map:wp_links__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_links #@@wp_links.link_id@@";
+	.
+map:wp_links_link_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_id;
+	d2rq:column "wp_links.link_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_links_link_url a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_url;
+	d2rq:column "wp_links.link_url";
+	.
+map:wp_links_link_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_name;
+	d2rq:column "wp_links.link_name";
+	.
+map:wp_links_link_image a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_image;
+	d2rq:column "wp_links.link_image";
+	.
+map:wp_links_link_target a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_target;
+	d2rq:column "wp_links.link_target";
+	.
+map:wp_links_link_category a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_category;
+	d2rq:column "wp_links.link_category";
+	d2rq:datatype xsd:long;
+	.
+map:wp_links_link_description a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_description;
+	d2rq:column "wp_links.link_description";
+	.
+map:wp_links_link_visible a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_visible;
+	d2rq:column "wp_links.link_visible";
+	.
+map:wp_links_link_owner a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_owner;
+	d2rq:column "wp_links.link_owner";
+	d2rq:datatype xsd:int;
+	.
+map:wp_links_link_rating a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_rating;
+	d2rq:column "wp_links.link_rating";
+	d2rq:datatype xsd:int;
+	.
+map:wp_links_link_updated a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_updated;
+	d2rq:column "wp_links.link_updated";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_links.link_updated != '0000'";
+	.
+map:wp_links_link_rel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_rel;
+	d2rq:column "wp_links.link_rel";
+	.
+map:wp_links_link_notes a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_notes;
+	d2rq:column "wp_links.link_notes";
+	.
+map:wp_links_link_rss a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_links;
+	d2rq:property vocab:wp_links_link_rss;
+	d2rq:column "wp_links.link_rss";
+	.
+
+# Table wp_options
+map:wp_options a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_options/@@wp_options.blog_id@@/@@wp_options.option_id@@/@@wp_options.option_name|urlify@@";
+	d2rq:class vocab:wp_options;
+	.
+map:wp_options__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_options #@@wp_options.blog_id@@/@@wp_options.option_id@@/@@wp_options.option_name@@";
+	.
+map:wp_options_option_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property vocab:wp_options_option_id;
+	d2rq:column "wp_options.option_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_options_blog_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property vocab:wp_options_blog_id;
+	d2rq:column "wp_options.blog_id";
+	d2rq:datatype xsd:int;
+	.
+map:wp_options_option_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property vocab:wp_options_option_name;
+	d2rq:column "wp_options.option_name";
+	.
+map:wp_options_option_value a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property vocab:wp_options_option_value;
+	d2rq:column "wp_options.option_value";
+	.
+map:wp_options_autoload a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_options;
+	d2rq:property vocab:wp_options_autoload;
+	d2rq:column "wp_options.autoload";
+	.
+
+# Table wp_postmeta
+map:wp_postmeta a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_postmeta/@@wp_postmeta.meta_id@@";
+	d2rq:class vocab:wp_postmeta;
+	.
+map:wp_postmeta__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_postmeta;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_postmeta #@@wp_postmeta.meta_id@@";
+	.
+map:wp_postmeta_meta_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_postmeta;
+	d2rq:property vocab:wp_postmeta_meta_id;
+	d2rq:column "wp_postmeta.meta_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_postmeta_post_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_postmeta;
+	d2rq:property vocab:wp_postmeta_post_id;
+	d2rq:column "wp_postmeta.post_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_postmeta_meta_key a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_postmeta;
+	d2rq:property vocab:wp_postmeta_meta_key;
+	d2rq:column "wp_postmeta.meta_key";
+	.
+map:wp_postmeta_meta_value a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_postmeta;
+	d2rq:property vocab:wp_postmeta_meta_value;
+	d2rq:column "wp_postmeta.meta_value";
+	.
+
+# Table wp_posts
+map:wp_posts a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_posts/@@wp_posts.ID@@";
+	d2rq:class vocab:wp_posts;
+	.
+map:wp_posts__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_posts #@@wp_posts.ID@@";
+	.
+map:wp_posts_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_ID;
+	d2rq:column "wp_posts.ID";
+	d2rq:datatype xsd:long;
+	.
+map:wp_posts_post_author a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_author;
+	d2rq:column "wp_posts.post_author";
+	d2rq:datatype xsd:long;
+	.
+map:wp_posts_post_date a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_date;
+	d2rq:column "wp_posts.post_date";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_posts.post_date != '0000'";
+	.
+map:wp_posts_post_date_gmt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_date_gmt;
+	d2rq:column "wp_posts.post_date_gmt";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_posts.post_date_gmt != '0000'";
+	.
+map:wp_posts_post_content a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_content;
+	d2rq:column "wp_posts.post_content";
+	.
+map:wp_posts_post_title a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_title;
+	d2rq:column "wp_posts.post_title";
+	.
+map:wp_posts_post_category a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_category;
+	d2rq:column "wp_posts.post_category";
+	d2rq:datatype xsd:int;
+	.
+map:wp_posts_post_excerpt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_excerpt;
+	d2rq:column "wp_posts.post_excerpt";
+	.
+map:wp_posts_post_status a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_status;
+	d2rq:column "wp_posts.post_status";
+	.
+map:wp_posts_comment_status a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_comment_status;
+	d2rq:column "wp_posts.comment_status";
+	.
+map:wp_posts_ping_status a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_ping_status;
+	d2rq:column "wp_posts.ping_status";
+	.
+map:wp_posts_post_password a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_password;
+	d2rq:column "wp_posts.post_password";
+	.
+map:wp_posts_post_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_name;
+	d2rq:column "wp_posts.post_name";
+	.
+map:wp_posts_to_ping a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_to_ping;
+	d2rq:column "wp_posts.to_ping";
+	.
+map:wp_posts_pinged a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_pinged;
+	d2rq:column "wp_posts.pinged";
+	.
+map:wp_posts_post_modified a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_modified;
+	d2rq:column "wp_posts.post_modified";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_posts.post_modified != '0000'";
+	.
+map:wp_posts_post_modified_gmt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_modified_gmt;
+	d2rq:column "wp_posts.post_modified_gmt";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_posts.post_modified_gmt != '0000'";
+	.
+map:wp_posts_post_content_filtered a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_content_filtered;
+	d2rq:column "wp_posts.post_content_filtered";
+	.
+map:wp_posts_post_parent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_parent;
+	d2rq:column "wp_posts.post_parent";
+	d2rq:datatype xsd:long;
+	.
+map:wp_posts_guid a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_guid;
+	d2rq:column "wp_posts.guid";
+	.
+map:wp_posts_menu_order a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_menu_order;
+	d2rq:column "wp_posts.menu_order";
+	d2rq:datatype xsd:int;
+	.
+map:wp_posts_post_type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_type;
+	d2rq:column "wp_posts.post_type";
+	.
+map:wp_posts_post_mime_type a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_post_mime_type;
+	d2rq:column "wp_posts.post_mime_type";
+	.
+map:wp_posts_comment_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_posts;
+	d2rq:property vocab:wp_posts_comment_count;
+	d2rq:column "wp_posts.comment_count";
+	d2rq:datatype xsd:long;
+	.
+
+# Table wp_term_relationships
+map:wp_term_relationships a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_term_relationships/@@wp_term_relationships.object_id@@/@@wp_term_relationships.term_taxonomy_id@@";
+	d2rq:class vocab:wp_term_relationships;
+	.
+map:wp_term_relationships__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_relationships;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_term_relationships #@@wp_term_relationships.object_id@@/@@wp_term_relationships.term_taxonomy_id@@";
+	.
+map:wp_term_relationships_object_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_relationships;
+	d2rq:property vocab:wp_term_relationships_object_id;
+	d2rq:column "wp_term_relationships.object_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_term_relationships_term_taxonomy_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_relationships;
+	d2rq:property vocab:wp_term_relationships_term_taxonomy_id;
+	d2rq:column "wp_term_relationships.term_taxonomy_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_term_relationships_term_order a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_relationships;
+	d2rq:property vocab:wp_term_relationships_term_order;
+	d2rq:column "wp_term_relationships.term_order";
+	d2rq:datatype xsd:int;
+	.
+
+# Table wp_term_taxonomy
+map:wp_term_taxonomy a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_term_taxonomy/@@wp_term_taxonomy.term_taxonomy_id@@";
+	d2rq:class vocab:wp_term_taxonomy;
+	.
+map:wp_term_taxonomy__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_term_taxonomy #@@wp_term_taxonomy.term_taxonomy_id@@";
+	.
+map:wp_term_taxonomy_term_taxonomy_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_term_taxonomy_id;
+	d2rq:column "wp_term_taxonomy.term_taxonomy_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_term_taxonomy_term_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_term_id;
+	d2rq:column "wp_term_taxonomy.term_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_term_taxonomy_taxonomy a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_taxonomy;
+	d2rq:column "wp_term_taxonomy.taxonomy";
+	.
+map:wp_term_taxonomy_description a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_description;
+	d2rq:column "wp_term_taxonomy.description";
+	.
+map:wp_term_taxonomy_parent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_parent;
+	d2rq:column "wp_term_taxonomy.parent";
+	d2rq:datatype xsd:long;
+	.
+map:wp_term_taxonomy_count a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_term_taxonomy;
+	d2rq:property vocab:wp_term_taxonomy_count;
+	d2rq:column "wp_term_taxonomy.count";
+	d2rq:datatype xsd:long;
+	.
+
+# Table wp_terms
+map:wp_terms a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_terms/@@wp_terms.term_id@@";
+	d2rq:class vocab:wp_terms;
+	.
+map:wp_terms__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_terms;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_terms #@@wp_terms.term_id@@";
+	.
+map:wp_terms_term_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_terms;
+	d2rq:property vocab:wp_terms_term_id;
+	d2rq:column "wp_terms.term_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_terms_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_terms;
+	d2rq:property vocab:wp_terms_name;
+	d2rq:column "wp_terms.name";
+	.
+map:wp_terms_slug a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_terms;
+	d2rq:property vocab:wp_terms_slug;
+	d2rq:column "wp_terms.slug";
+	.
+map:wp_terms_term_group a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_terms;
+	d2rq:property vocab:wp_terms_term_group;
+	d2rq:column "wp_terms.term_group";
+	d2rq:datatype xsd:long;
+	.
+
+# Table wp_usermeta
+map:wp_usermeta a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_usermeta/@@wp_usermeta.umeta_id@@";
+	d2rq:class vocab:wp_usermeta;
+	.
+map:wp_usermeta__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_usermeta;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_usermeta #@@wp_usermeta.umeta_id@@";
+	.
+map:wp_usermeta_umeta_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_usermeta;
+	d2rq:property vocab:wp_usermeta_umeta_id;
+	d2rq:column "wp_usermeta.umeta_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_usermeta_user_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_usermeta;
+	d2rq:property vocab:wp_usermeta_user_id;
+	d2rq:column "wp_usermeta.user_id";
+	d2rq:datatype xsd:long;
+	.
+map:wp_usermeta_meta_key a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_usermeta;
+	d2rq:property vocab:wp_usermeta_meta_key;
+	d2rq:column "wp_usermeta.meta_key";
+	.
+map:wp_usermeta_meta_value a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_usermeta;
+	d2rq:property vocab:wp_usermeta_meta_value;
+	d2rq:column "wp_usermeta.meta_value";
+	.
+
+# Table wp_users
+map:wp_users a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "wp_users/@@wp_users.ID@@";
+	d2rq:class vocab:wp_users;
+	.
+map:wp_users__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property rdfs:label;
+	d2rq:pattern "wp_users #@@wp_users.ID@@";
+	.
+map:wp_users_ID a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_ID;
+	d2rq:column "wp_users.ID";
+	d2rq:datatype xsd:long;
+	.
+map:wp_users_user_login a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_login;
+	d2rq:column "wp_users.user_login";
+	.
+map:wp_users_user_pass a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_pass;
+	d2rq:column "wp_users.user_pass";
+	.
+map:wp_users_user_nicename a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_nicename;
+	d2rq:column "wp_users.user_nicename";
+	.
+map:wp_users_user_email a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_email;
+	d2rq:column "wp_users.user_email";
+	.
+map:wp_users_user_url a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_url;
+	d2rq:column "wp_users.user_url";
+	.
+map:wp_users_user_registered a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_registered;
+	d2rq:column "wp_users.user_registered";
+	d2rq:datatype xsd:dateTime;
+	d2rq:condition "wp_users.user_registered != '0000'";
+	.
+map:wp_users_user_activation_key a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_activation_key;
+	d2rq:column "wp_users.user_activation_key";
+	.
+map:wp_users_user_status a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_user_status;
+	d2rq:column "wp_users.user_status";
+	d2rq:datatype xsd:int;
+	.
+map:wp_users_display_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:wp_users;
+	d2rq:property vocab:wp_users_display_name;
+	d2rq:column "wp_users.display_name";
+	.
+

@@ -1,0 +1,35 @@
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:w="http://www.weather.gov/ontology#"
+      xml:base="http://www.weather.gov/weather#"
+      xmlns = "http://www.weather.gov/weather#" >
+
+   <w:WeatherObservation>
+      <w:source rdf:resource="$observation.CreditURL"/>
+      <w:time>$observation.ObservationTimeRfc822</w:time>
+      <w:location>$observation.Location</w:location>
+      <w:latitude>$observation.Latitude</w:latitude>
+      <w:longitude>$observation.Longitude</w:longitude>
+      <w:temperature_f>$observation.TempF</w:temperature_f>
+      <w:windDirection rdf:resource="$observation.WindDir"/>
+      <w:wind_mph>$observation.WindMph</w:wind_mph>
+
+#if ( $observation.WindGustMph == "NA" )
+      <w:wind_gust_mph>
+        $observation.WindGustMph
+      </w:wind_gust_mph>
+#end
+
+#if( $observation.Weather )
+      <w:weatherDescription>
+        $observation.Weather.replace('\n', '').trim()
+      </w:weatherDescription>
+#end
+
+      <w:copyright rdf:resource="$observation.CopyrightUrl"/>
+   </w:WeatherObservation>
+</rdf:RDF>
+

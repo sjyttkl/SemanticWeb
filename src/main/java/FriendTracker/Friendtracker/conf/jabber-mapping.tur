@@ -1,0 +1,69 @@
+# Standard import statements
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SWRL imports
+#@prefix ruleml: <http://www.w3.org/2003/11/ruleml#> . 
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> . 
+
+# Domain imports
+@prefix friendtracker: <http://semwebprogramming.org:8099/ont/friendtracker-ont#> .
+@prefix jabber: <http://www.jabber.org/ontology#> .
+
+@prefix : <http://semwebprogramming.org:8099/ont/friendtracker-jabber-mapping#> .
+
+#friendtracker:isNamed a owl:DatatypeProperty .
+#friendtracker:hasEmailAddress a owl:DatatypeProperty .
+
+#jabber:name a owl:DatatypeProperty .
+#jabber:presenceType a owl:ObjectProperty .
+
+jabber:Contact rdfs:subClassOf friendtracker:Friend .
+jabber:name rdfs:subPropertyOf friendtracker:isNamed .
+
+#Variables for email extraction
+#:contact a swrl:Variable .
+#:scheme a swrl:Variable .
+#:host a swrl:Variable .
+#:port a swrl:Variable .
+#:path a swrl:Variable .
+#:query a swrl:Variable .
+#:fragment a swrl:Variable .
+
+#:EmailExtraction a swrl:Imp ;
+#	swrl:body 
+#	(
+#		[ a swrl:ClassAtom ;
+#		  swrl:classPredicate jabber:Contact ;
+#		  swrl:argument1 :contact 
+#		]
+
+#		[ a swrl:DatavaluedPropertyAtom ; 
+#		  swrl:propertyPredicate jabber:name ;
+#		  swrl:argument1 :contact ;
+#		  swrl:argument2 :fragment
+#		]
+
+#		[ a swrl:BuiltinAtom ;
+#		  swrl:builtin swrlb:anyURI ;
+#		  swrl:arguments (:contact :scheme :host :port :path :query :fragment)
+#		  swrl:argument1 :contact ;
+#		  swrl:argument2 :scheme ;
+#		  swrl:argument3 :host ;
+#		  swrl:argument4 :port ;
+#		  swrl:argument5 :path ;
+#		  swrl:argument6 :query ;
+#		  swrl:argument7 :fragment 
+#		]
+#	) ;
+#	swrl:head
+#	(
+#		[ a swrl:DatavaluedPropertyAtom ;
+#		  swrl:propertyPredicate friendtracker:hasEmailAddress ;
+#		  swrl:argument1 :contact ;
+#		  swrl:argument2 :fragment
+#		]
+#	) .

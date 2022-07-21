@@ -1,0 +1,67 @@
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://example.org/package#> .
+
+:Warehouse a owl:Class .
+:Scan a owl:Class .
+
+# This describes a package warehouse in Arlington, Virginia
+:Warehouse1 a :Warehouse ;
+  :name "Arlington Warehouse" ;
+  :locatedAt [ a geo:Point ;
+               geo:lat "38.893754" ;
+               geo:long "-77.072568" 
+             ] .
+
+# This describes a package warehouse in Columbia, Maryland
+:Warehouse2 a :Warehouse ;
+  :name "Columbia Warehouse" ;
+  :locatedAt [ a geo:Point ;
+               geo:lat "39.184543" ;
+               geo:long "-76.850706" 
+             ] .
+
+# This describes a package warehouse near Boston, Massachusetts
+:Warehouse3 a :Warehouse ;
+  :name "Boston Warehouse" ;
+  :locatedAt [ a geo:Point ;
+               geo:lat "42.390438" ;
+               geo:long "-71.148705" 
+             ] .
+# A package with package ID 1111, presumably other information about 
+# the package exists elsewhere
+:Package1
+   :id "1111" .
+
+# A package with ID 2222
+:Package2
+   :id "2222" .
+
+# A package scan, indicating that package 1 was in Arlington at 9:30 AM
+# on September 24th, 2008
+[] a :Scan ;
+   :package :Package1 ;
+   :location :Warehouse1 ;
+   :time [ a time:Instant ;
+           time:inXSDDateTime "2008-09-24T09:30:00-5:00"
+         ] .
+
+# A package scan, indicating that package 1 was in Columbia at 10:30 PM
+# on September 24th, 2008
+[] a :Scan ;
+   :package :Package1 ;
+   :location :Warehouse2 ;
+   :time [ a time:Instant ;
+           time:inXSDDateTime "2008-09-24T22:30:00-5:00"
+         ] .
+
+# A package scan, indicating that package 1 was in Boston at 6:08 PM
+# on September 25th, 2008
+[] a :Scan ;
+   :package :Package1 ;
+   :location :Warehouse3 ;
+   :time [ a time:Instant ;
+           time:inXSDDateTime "2008-09-25T18:08:00-5:00"
+         ] .
+

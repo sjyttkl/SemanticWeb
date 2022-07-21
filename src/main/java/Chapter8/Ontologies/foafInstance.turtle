@@ -1,0 +1,51 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix admin:   <http://webns.net/mvcb/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://semwebprogramming.org/2009/ont/chp8#Ontology>
+      rdf:type foaf:Person ;
+      rdfs:seeAlso <http://ont.com> ;
+      foaf:mbox <mailto:ont@gmail.com> ;
+      foaf:name "I. M. Ontology" .
+
+<http://semwebprogramming.org/2009/ont/chp8#me>
+      rdf:type foaf:Person ;
+      owl:sameAs <http://semwebprogramming.org/2009/ont/chp8#Individual_5> ;
+      foaf:depiction <http://semwebprogramming.org/semweb.jpg> ;
+      foaf:family_name "Web" ;
+      foaf:givenname "Semantic" ;
+      foaf:homepage <http://semwebprogramming.org> ;
+      foaf:knows <http://semwebprogramming.org/2009/ont/chp8#Ontology> , <http://semwebprogramming.org/2009/ont/chp8#Reasoner> , <http://semwebprogramming.org/2009/ont/chp8#Statement> ;
+      foaf:name "Semantic Web" ;
+      foaf:nick "Webby" ;
+      foaf:phone <tel:410-679-8999> ;
+      foaf:schoolHomepage <http://www.web.edu> ;
+      foaf:title "Dr" ;
+      foaf:workInfoHomepage
+              <http://semwebprogramming.com/dataweb.html> ;
+      foaf:workplaceHomepage
+              <http://semwebprogramming.com> .
+
+<http://semwebprogramming.org/2009/ont/chp8#Reasoner>
+      rdf:type foaf:Person ;
+      rdfs:seeAlso <http://reasoner.com> ;
+      foaf:mbox <mailto:reason@firefox.com> ;
+      foaf:name "Ican Reason" .
+
+<http://semwebprogramming.org/2009/ont/chp8>
+      rdf:type foaf:PersonalProfileDocument ;
+      admin:errorReportsTo
+              <mailto:leigh@ldodds.com> ;
+      admin:generatorAgent
+              <http://www.ldodds.com/foaf/foaf-a-matic> ;
+      foaf:maker <http://semwebprogramming.org/2009/ont/chp8#me> ;
+      foaf:primaryTopic <http://semwebprogramming.org/2009/ont/chp8#me> .
+
+<http://semwebprogramming.org/2009/ont/chp8#Statement>
+      rdf:type foaf:Person ;
+      rdfs:seeAlso <http://statement.com> ;
+      foaf:mbox <mailto:mstatement@gmail.com> ;
+      foaf:name "Makea Statement" .

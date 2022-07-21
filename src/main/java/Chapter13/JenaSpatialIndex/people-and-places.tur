@@ -1,0 +1,22 @@
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://semwebprogramming.net/examples#> .
+
+
+:Andrew a foaf:Person ;
+	foaf:given_name "Andrew" ;
+	foaf:family_name "Perez-Lopez" ;
+	:locatedAt _:loc .
+
+_:loc a geo:Point ;
+	geo:lat "38.893992" ;
+	geo:lon "-77.072834" .
+
+:Matt a foaf:Person ; 
+	foaf:given_name "Matt" ;
+	foaf:family_name "Fisher" ;
+	:locatedAt _:mattLoc .
+
+_:mattLoc a geo:Point ;
+	geo:lat "38.752817" ;
+	geo:lon "-77.524094" .

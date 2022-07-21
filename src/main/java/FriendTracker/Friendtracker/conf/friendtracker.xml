@@ -1,0 +1,49 @@
+<friendtracker
+  friendtrackerOntologyLocation="friendtracker-ont.tur">
+
+
+<!--
+	server="jabber.org"
+	login="semwebprogramming"
+	password="s3mw3b"
+-->
+
+<jabber
+	server="jabber.org"
+	login="semwebprogramming"
+	password="s3mw3b"
+	mappingLocation="conf/jabber-mapping.tur"
+	ontUri="http://www.jabber.org/ontology#"
+/>
+
+<wordpress
+	wordPressMapping="/home/andrew/book/svn/trunk/FriendTracker/Friendtracker/conf/wordpress-mapping.n3"
+	mappingXsl="/home/andrew/book/svn/trunk/FriendTracker/Friendtracker/conf/wordpress.xsl"
+	queryLocation="/home/andrew/book/svn/trunk/FriendTracker/Friendtracker/conf/queries.txt"
+	queryName="main-construct"
+/>
+
+<upcoming
+  yahooDeveloperKey="425cffbeba" 
+  mappingLocation="conf/upcoming-mapping.tur"
+  ontUri="http://semwebprogramming.org/2009/upcoming#"
+/>
+
+<!-- possible facebook fields: about_me,activities,affiliations,birthday,books,current_location,education_history,first_name,hometown_location,hs_info,interests,locale,meeting_for,meeting_sex,movies,music,name,notes_count,pic,pic_big,pic_small,pic_square,political,profile_update_time,quotes,relationship_status,religion,sex,significant_other_id,status,timezone,tv,wall_count,work_history 
+-->
+
+<!--   browserLocation="c:/program files/mozilla firefox/firefox.exe" 
+-->
+<facebook
+  fields="hometown_location,name,pic,pic_big,pic_small,pic_square,status,about_me"
+  browserLocation="/usr/bin/firefox"
+  secret="c49cd05234c66b1a2c52eb32c6724c21"
+  apiKey="8c6def0daceda379e4fa115a9a39ca6f"
+  wsUrl="http://api.facebook.com/restserver.php"
+  loginUrl="http://api.facebook.com/login.php"
+  xslLocation="file:conf/facebook.xsl"
+  ontUri="http://www.facebook.com/ontology#"
+  mappingLocation="conf/facebook-mapping.tur"
+  />
+
+</friendtracker>

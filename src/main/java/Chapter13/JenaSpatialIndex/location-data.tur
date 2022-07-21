@@ -1,0 +1,188 @@
+# This file represents the location of some businesses.
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "707 Southpark Blvd, Colonial Heights VA 23834" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(804) 526-4481" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "37.247886" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.388923" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "653 Center Point Way, Gaithersburg MD 20878" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(301) 926 9011" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "39.121925" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.234754" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "136 Lantana Dr, Hockessin DE 19707" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(302) 239-1270" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "39.776117" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-75.713017" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "117 S Bouquet St, Pittsburgh PA 15213" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(412) 802-7101" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "40.442482" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-79.957101" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "6541 Backlick Rd, Springfield VA 22150" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(703) 913-1337" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.777264" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.184649" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "750 Independence Blvd, Virginia Beach VA 23455" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(757) 519-9022" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "36.864308" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-76.132557" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "1304 W Main St, Salem VA 24153" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(540-375-6712" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "37.289828" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-80.078373" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "1961 Chain Bridge Rd, Tysons Corner VA 22102" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(571) 633-9554" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.919611" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.226403" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "13580 Foulger Sq,  VA 22192" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(518) 580-6789" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.656298" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.304462" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "14001 Jefferson Davis Hwy,  VA 22191" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(703) 492-8882" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.649417" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.261204" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "5272 Campbell Blvd, White Marsh MD 21236" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(410) 933-1018" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "39.369194" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-76.452943" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "931 W Broad St, Richmond VA 23220" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(804)-359-0056" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "37.550450" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.450162" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "107 N Fayette St, Alexandria VA 22314" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(703) 549-7991" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.805835" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.052437" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "2901 Richmond Ln, Alexandria VA 22305" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(703) 717-0090" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.83146" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.069674" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "1100 New Jersey Ave SE, Washington DC 20003" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(202) 863-0571" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.877529" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-77.004542" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "1013 Richmond Ave, Staunton VA 24401" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(540) 885-8994" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "38.138948" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-79.048496" .
+
+[]    <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+              <http://www.w3.org/2003/01/geo/wgs84_pos#Point> ;
+      <http://purl.org/dc/elements/1.1/description>
+              "201 E Pratt St, Baltimore MD 21202" ;
+      <http://semwebprogramming.net/example#hasPhoneNumber>
+              "(410) 244-8993" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "39.286603" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "-76.612128" .

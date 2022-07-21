@@ -1,0 +1,110 @@
+# This file describes the application ontology employed by the 
+# FriendTracker UI.  Each of the properties and classes below can be 
+# populated by at least one of the data sources of FriendTracker: 
+# Facebook, Jabber, Upcoming, or WordPress
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix : <http://semwebprogramming.org/2009/ftracker#> .
+
+# Friends represent people, and can come from Facebook, Jabber, 
+# or WordPress
+:Friend a owl:Class ; 
+        rdfs:subClassOf foaf:Person .
+
+# Online status information is available from both Facebook and Jabber
+:OnlineStatus a owl:Class ;
+              owl:oneOf (:Unknown :Available :Busy :Away :Offline) .
+[] a owl:AllDifferent ;
+   owl:distinctMembers (:Unknown :Available :Busy :Away :Offline) .
+
+# This predicate will be used for both people and events.
+:isNamed a owl:DatatypeProperty .
+
+#  This predicate is a string which describes a location 
+#  (City, state, country, etc.)
+:isFrom a owl:DatatypeProperty ;
+        rdfs:range xsd:string .
+
+# An OnlineStatus representing a person's online status.
+:hasStatus a owl:ObjectProperty ;
+           rdfs:range :OnlineStatus ;
+           rdfs:domain :Friend .
+
+# A URL of a picture of a person or venue
+:hasPic a owl:DatatypeProperty .
+
+# This field is provided by Jabber and WordPress
+:hasEmailAddress a owl:DatatypeProperty ;
+                 rdfs:range xsd:string ;
+                 rdfs:domain :Friend .
+
+# This field is provided by Jabber and WordPress
+:hasHandle a owl:DatatypeProperty ;
+           rdfs:range xsd:string ;
+           rdfs:domain :Friend .
+
+# This predicate ties people to blog posts
+:hasPost a owl:ObjectProperty ;
+         rdfs:range :Post ;
+         rdfs:domain :Friend .
+
+# An event has a name, a start time, and a venue
+:Event a owl:Class ;
+       rdfs:subClassOf [ a owl:Restriction ;
+                         owl:onProperty :occursAt ;
+                         owl:minCardinality "1" 
+                       ] ,
+                       [ a owl:Restriction ;
+                         owl:onProperty :isNamed ;
+                         owl:minCardinality "1" 
+                       ] ,
+                       [ a owl:Restriction ; 
+                         owl:onProperty :hasVenue ;
+                         owl:minCardinality "1"
+                       ] .
+# A venue is a named point in space where an event takes place       
+:Venue a owl:Class ;
+       rdfs:subClassOf geo:Point ,
+                       [ a owl:Restriction ;
+                         owl:onProperty :isNamed ;
+                         owl:minCardinality "1" 
+                       ] .
+# Associates an event with a Venue
+:hasVenue a owl:ObjectProperty ;
+          rdfs:range :Venue ; 
+          rdfs:domain :Event.
+
+:hasDescription a owl:DatatypeProperty ;
+                rdfs:range xsd:string .
+
+# Used for both events and blog posts
+:occursAt a owl:ObjectProperty ;
+          rdfs:range time:Instant .
+
+# Represents a blog post
+:Post a owl:Class ;
+      rdfs:subClassOf [ a owl:Restriction ;
+                        owl:onProperty :hasTitle ; 
+                        owl:cardinality "1" 
+                      ] ,
+                      [ a owl:Restriction ;
+                        owl:onProperty :hasContent ; 
+                        owl:cardinality "1" 
+                      ] ,
+                      [ a owl:Restriction ;
+                        owl:onProperty :occursAt ; 
+                        owl:cardinality "1" 
+                      ] .
+:hasTitle a owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+:hasContent a owl:DatatypeProperty ;
+            rdfs:range xsd:string .
+
